@@ -25,8 +25,8 @@
   </div>
   <div class="field">
     <%= label_tag :magazine_id %><br>
-    <%= f.fields_for(:carriages) do |i| %>
-      <%= i.collection_select(:magazine_id, Magazine.all, :id, :name, prompt: true) %>
+    <%= f.fields_for(:carriages) do |cf| %>
+      <%= cf.collection_select(:magazine_id, Magazine.all, :id, :name, prompt: true) %>
     <% end %>
   </div>
   <div class="actions">
