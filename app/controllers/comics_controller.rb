@@ -21,6 +21,7 @@ class ComicsController < ApplicationController
 
   # GET /comics/1/edit
   def edit
+
   end
 
   # POST /comics
@@ -43,6 +44,7 @@ class ComicsController < ApplicationController
   # PATCH/PUT /comics/1.json
   def update
     respond_to do |format|
+      binding.pry
       if @comic.update(comic_params)
         format.html { redirect_to @comic, notice: 'Comic was successfully updated.' }
         format.json { render :show, status: :ok, location: @comic }

@@ -5,7 +5,7 @@ class MagazineVolumesController < ApplicationController
   # GET /magazine_volumes.json
   def index
     @magazine_volumes = MagazineVolume.all
-   
+
   end
 
   # GET /magazine_volumes/1
@@ -21,6 +21,7 @@ class MagazineVolumesController < ApplicationController
 
   # GET /magazine_volumes/1/edit
   def edit
+    @comics = @magazine_volume.magazine.comics
   end
 
   # POST /magazine_volumes

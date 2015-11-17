@@ -2,5 +2,17 @@
 
 <%= render 'form' %>
 
+<% @comics.each do |comic| %>
+  <tr>
+    <td><%= comic.title %></td>
+    <td><%= comic.author %></td>
+    <td><%= comic.score %></td>
+    <td><%= comic.carriages.first.try(:magazine).try(:name) %></td>
+    <td><%= link_to 'Show', comic %></td>
+    <td><%= link_to 'Edit', edit_comic_path(comic) %></td>
+    <td><%= link_to 'Destroy', comic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+
 <%= link_to 'Show', @magazine_volume %> |
 <%= link_to 'Back', magazine_volumes_path %>
