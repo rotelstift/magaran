@@ -23,6 +23,13 @@
     <%= f.label :score %><br>
     <%= f.number_field :score %>
   </div>
+  <div class="field">
+    <%= label_tag :magazine_id %><br>
+    <%= @comic.carriages.inspect %>
+    <%= f.fields_for(:carriages) do |cf| %>
+      <%= cf.collection_select(:magazine_id, Magazine.all, :id, :name, prompt: true) %>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

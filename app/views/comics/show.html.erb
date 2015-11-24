@@ -15,5 +15,17 @@
   <%= @comic.score %>
 </p>
 
+<p>
+  <strong>Chapters</strong>
+  <table>
+  <% @comic_chapters.each do |comic_chapter| %>
+    <tr>
+      <td><%= comic_chapter.subtitle %></td>
+      <td><%= comic_chapter.number %></td>
+    </tr>
+  <% end %>
+  </table>
+</p>
+
 <%= link_to 'Edit', edit_comic_path(@comic) %> |
 <%= link_to 'Back', comics_path %>

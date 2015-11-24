@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901113824) do
+ActiveRecord::Schema.define(version: 20150929115308) do
+
+  create_table "carriages", force: :cascade do |t|
+    t.integer  "magazine_id"
+    t.integer  "comic_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "carriages", ["comic_id"], name: "index_carriages_on_comic_id"
+  add_index "carriages", ["magazine_id"], name: "index_carriages_on_magazine_id"
 
   create_table "comic_chapters", force: :cascade do |t|
     t.integer  "number"

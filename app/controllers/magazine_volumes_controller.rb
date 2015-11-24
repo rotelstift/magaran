@@ -5,7 +5,7 @@ class MagazineVolumesController < ApplicationController
   # GET /magazine_volumes.json
   def index
     @magazine_volumes = MagazineVolume.all
-   
+
   end
 
   # GET /magazine_volumes/1
@@ -21,6 +21,12 @@ class MagazineVolumesController < ApplicationController
 
   # GET /magazine_volumes/1/edit
   def edit
+    @comics = @magazine_volume.magazine.comics
+
+    @comics.each do |c|
+      @magazine_volume.comic_chapters.build(comic: c)
+    end
+
   end
 
   # POST /magazine_volumes
@@ -71,6 +77,6 @@ class MagazineVolumesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def magazine_volume_params
-      params.require(:magazine_volume).permit(:magazine_id, :number, :published)
+      params.require(:magazine_volume).permit(:magazine_id, :number, :published, comic_chapters_attributes: [:id, :number, :subtitle, :comic_id])
     end
 end

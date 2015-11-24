@@ -32,7 +32,7 @@
   <tbody>
     <% @comic_chapters.each do |comic_chapter| %>
       <tr>
-        <td><%= Comic.find(magazine_volume.magazine_id).name %></td>
+        <td><%= Comic.find(comic_chapter.comic_id).title %></td>
         <td><%= comic_chapter.number %></td>
         <td><%= comic_chapter.subtitle %></td>
         <td><%= comic_chapter.total_point %></td>
