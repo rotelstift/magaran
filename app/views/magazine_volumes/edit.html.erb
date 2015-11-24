@@ -28,8 +28,11 @@
   </div>
   <div class="field">
     <%= f.label :comics %><br>
-    <%= f.fields_for(:comics) do |cf| %>
+    <%= f.fields_for(:comic_chapters) do |cf| %>
+      <%= cf.object.comic.title %>
       <%= cf.number_field :number %>
+      <%= cf.text_field :subtitle %>
+      <%= cf.hidden_field :comic_id %>
     <% end %>
   </div>
   <div class="actions">
@@ -37,6 +40,7 @@
   </div>
 <% end %>
 
+<table>
 <% @comics.each do |comic| %>
   <tr>
     <td><%= comic.title %></td>
@@ -48,6 +52,7 @@
     <td><%= link_to 'Destroy', comic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+</table>
 
 <%= link_to 'Show', @magazine_volume %> |
 <%= link_to 'Back', magazine_volumes_path %>
