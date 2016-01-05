@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  resources :comic_chapters
-  resources :comics
-  resources :magazine_volumes
-  get 'votes/new'
-  get 'magazine/:magazine_id/votes/new', controller: :votes, action: :new
-
-  resources :magazines
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -55,9 +48,15 @@ Rails.application.routes.draw do
   #   resources :photos, concerns: :toggleable
 
   # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+     namespace :admin do
+       # Directs /admin/products/* to Admin::ProductsController
+       # (app/controllers/admin/products_controller.rb)
+       resources :comic_chapters
+       resources :comics
+       resources :magazine_volumes
+       get 'votes/new'
+       get 'magazine/:magazine_id/votes/new', controller: :votes, action: :new
+
+       resources :magazines
+     end
 end
