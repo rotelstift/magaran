@@ -31,8 +31,7 @@
           <%= current_user.name %> <%= link_to 'ログアウト', logout_path %>
         <% else %>
           <p>書き込みをするにはTwitter認証が必要です。</p>
-          <a href="/auth/twitter" data-ajax="false"
-          class="ui-btn ui-btn-inline ui-corner-all ui-btn-b">次へ</a>
+          <%= link_to "認証", "/auth/twitter", data: {ajax: "false"}, class: %w(ui-btn ui-btn-inline ui-corner-all ui-btn-b) %>
           <a href="#" data-rel="back"
           class="ui-btn ui-btn-inline ui-corner-all">閉じる</a>
         <% end %>
