@@ -6,8 +6,8 @@
 		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -15,11 +15,29 @@
     <div data-role="header">
       <header>
         <h1><a href="/">マガラン</a></h1>
-        <button class="header-navbtn fa fa-bars"><span class="offleft">メニューを開く</span></button>
+        <!--<a href="#popupDialog" data-rel="popup">Dialog</a>-->
+        <p><a href="#popupDialog" data-rel="popup" class="ui-btn ui-icon-edit ui-btn-icon-left" data-overlay-theme="b">感想を書く</a></p>
       </header>
     </div>
     <div role="main" class="ui-content">
       <%= yield %>
+    </div>
+    <div id="popupDialog" data-role="popup" data-overlay-theme="b">
+      <div data-role="header">
+        <h2>Dialog</h2>
+      </div>
+      <div role="main" class="ui-content">
+        <% if current_user %>
+          <%= current_user.name %> <%= link_to 'ログアウト', logout_path %>
+        <% else %>
+          <p>書き込みをするにはTwitter認証が必要です。</p>
+          <a href="/auth/twitter" data-ajax="false"
+          class="ui-btn ui-btn-inline ui-corner-all ui-btn-b">次へ</a>
+          <a href="#" data-rel="back"
+          class="ui-btn ui-btn-inline ui-corner-all">閉じる</a>
+        <% end %>
+
+      </div>
     </div>
   </div>
 </body>

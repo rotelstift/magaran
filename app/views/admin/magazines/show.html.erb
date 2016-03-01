@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @magazine.name %>
+</p>
+
+<%= link_to 'Edit', edit_admin_magazine_path(@magazine) %> |
+<%= link_to 'Back', admin_magazines_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Magazine</th>
+      <th>Number</th>
+      <th>Published</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @magazine_volumes.each do |magazine_volume| %>
+      <tr>
+        <td><%= Magazine.find(magazine_volume.magazine_id).name %></td>
+        <td><%= magazine_volume.number %></td>
+        <td><%= magazine_volume.published %></td>
+        <td><%= link_to 'Show', admin_magazine_volume_path(magazine_volume) %></td>
+        <td><%= link_to 'Edit', edit_admin_magazine_volume_path(magazine_volume) %></td>
+        <td><%= link_to 'Destroy', admin_magazine_volume_path(magazine_volume), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

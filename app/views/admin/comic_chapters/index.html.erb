@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Comic Chapters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Number</th>
+      <th>Subtitle</th>
+      <th>Total point</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comic_chapters.each do |comic_chapter| %>
+      <tr>
+        <td><%= Comic.find(comic_chapter.comic_id).title %></td>
+        <td><%= comic_chapter.number %></td>
+        <td><%= comic_chapter.subtitle %></td>
+        <td><%= comic_chapter.total_point %></td>
+        <td><%= link_to 'Show', admin_comic_chapter_path(comic_chapter) %></td>
+        <td><%= link_to 'Edit', edit_admin_comic_chapter_path(comic_chapter) %></td>
+        <td><%= link_to 'Destroy', admin_comic_chapter_path(comic_chapter), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comic chapter', new_admin_comic_chapter_path %>

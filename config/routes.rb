@@ -1,16 +1,11 @@
 Rails.application.routes.draw do
-  resources :comic_chapters
-  resources :comics
-  resources :magazine_volumes
-  get 'votes/new'
-  get 'magazine/:magazine_id/votes/new', controller: :votes, action: :new
+  get 'home/index'
 
-  resources :magazines
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'magazines#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -55,9 +50,20 @@ Rails.application.routes.draw do
   #   resources :photos, concerns: :toggleable
 
   # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+     namespace :admin do
+       # Directs /admin/products/* to Admin::ProductsController
+       # (app/controllers/admin/products_controller.rb)
+       resources :comic_chapters
+       resources :comics
+       resources :magazine_volumes
+       get 'votes/new'
+       get 'magazine/:magazine_id/votes/new', controller: :votes, action: :new
+
+       resources :magazines
+     end
+
+    #get "home/index"
+    get '/auth/:provider/callback', :to => 'sessions#callback'
+    post '/auth/:provider/callback', :to => 'sessions#callback'
+    get '/logout' => 'sessions#destroy', :as => :logout
 end

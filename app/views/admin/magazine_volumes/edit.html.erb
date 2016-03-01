@@ -1,0 +1,58 @@
+<h1>Editing Magazine Volume</h1>
+
+<%= form_for(@magazine_volume) do |f| %>
+  <% if @magazine_volume.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@magazine_volume.errors.count, "error") %> prohibited this magazine_volume from being saved:</h2>
+
+      <ul>
+      <% @magazine_volume.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+      <%= f.label :magazine_id %><br>
+      <%= f.collection_select(:magazine_id, Magazine.all, :id, :name, prompt: true) %>
+    </div>
+
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.text_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :published %><br>
+    <%= f.date_select :published %>
+  </div>
+  <div class="field">
+    <%= f.label :comics %><br>
+    <%= f.fields_for(:comic_chapters) do |cf| %>
+      <%= cf.object.comic.title %>
+      <%= cf.number_field :number %>
+      <%= cf.text_field :subtitle %>
+      <%= cf.hidden_field :comic_id %>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<table>
+<% @comics.each do |comic| %>
+  <tr>
+    <td><%= comic.title %></td>
+    <td><%= comic.author %></td>
+    <td><%= comic.score %></td>
+    <td><%= comic.carriages.first.try(:magazine).try(:name) %></td>
+    <td><%= link_to 'Show', admin_comic_path %></td>
+    <td><%= link_to 'Edit', edit_admin_comic_path(comic) %></td>
+    <td><%= link_to 'Destroy', admin_comic_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Show', @magazine_volume %> |
+<%= link_to 'Back', admin_magazine_volumes_path %>
