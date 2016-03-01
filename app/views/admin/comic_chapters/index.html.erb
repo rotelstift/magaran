@@ -20,7 +20,7 @@
         <td><%= comic_chapter.number %></td>
         <td><%= comic_chapter.subtitle %></td>
         <td><%= comic_chapter.total_point %></td>
-        <td><%= link_to 'Show', admin_comic_chapters_path %></td>
+        <td><%= link_to 'Show', admin_comic_chapter_path(comic_chapter) %></td>
         <td><%= link_to 'Edit', edit_admin_comic_chapter_path(comic_chapter) %></td>
         <td><%= link_to 'Destroy', admin_comic_chapter_path(comic_chapter), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

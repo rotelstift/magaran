@@ -2,7 +2,7 @@
 
 <p>
   <strong>Title:</strong>
-  <%= link_to Comic.find(@comic_chapter.comic_id).title, comic_path(@comic_chapter.comic_id) %>
+  <%= link_to Comic.find(@comic_chapter.comic_id).title, admin_comic_path(@comic_chapter.comic_id) %>
 </p>
 
 <p>
@@ -20,5 +20,5 @@
   <%= @comic_chapter.total_point %>
 </p>
 
-<%= link_to 'Edit', edit_comic_chapter_path(@comic_chapter) %> |
-<%= link_to 'Back', comic_chapters_path %>
+<%= link_to 'Edit', edit_admin_comic_chapter_path(@comic_chapter) %> |
+<%= link_to 'Back', admin_comic_chapters_path %>

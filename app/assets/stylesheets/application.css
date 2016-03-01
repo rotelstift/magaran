@@ -16,3 +16,13 @@
 #body-wrapper {
 	padding: 10px;
 }
+
+h1 {
+	text-align: center;
+	font-weight: bolder;
+}
+
+header p {
+	text-align: right;
+	margin: 5px;
+}

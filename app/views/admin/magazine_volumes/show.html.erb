@@ -15,8 +15,8 @@
   <%= @magazine_volume.published %>
 </p>
 
-<%= link_to 'Edit', edit_magazine_volume_path(@magazine_volume) %> |
-<%= link_to 'Back', magazine_volumes_path %>
+<%= link_to 'Edit', edit_admin_magazine_volume_path(@magazine_volume) %> |
+<%= link_to 'Back', admin_magazine_volumes_path %>
 
 <table>
   <thead>
@@ -36,9 +36,9 @@
         <td><%= comic_chapter.number %></td>
         <td><%= comic_chapter.subtitle %></td>
         <td><%= comic_chapter.total_point %></td>
-        <td><%= link_to 'Show', comic_chapter %></td>
-        <td><%= link_to 'Edit', edit_comic_chapter_path(comic_chapter) %></td>
-        <td><%= link_to 'Destroy', comic_chapter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_comic_chapter_path(comic_chapter) %></td>
+        <td><%= link_to 'Edit', edit_admin_comic_chapter_path(comic_chapter) %></td>
+        <td><%= link_to 'Destroy', admin_comic_chapter_path(comic_chapter), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

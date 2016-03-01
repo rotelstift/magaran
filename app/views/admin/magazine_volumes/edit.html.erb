@@ -47,12 +47,12 @@
     <td><%= comic.author %></td>
     <td><%= comic.score %></td>
     <td><%= comic.carriages.first.try(:magazine).try(:name) %></td>
-    <td><%= link_to 'Show', comic %></td>
-    <td><%= link_to 'Edit', edit_comic_path(comic) %></td>
-    <td><%= link_to 'Destroy', comic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', admin_comic_path %></td>
+    <td><%= link_to 'Edit', edit_admin_comic_path(comic) %></td>
+    <td><%= link_to 'Destroy', admin_comic_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <%= link_to 'Show', @magazine_volume %> |
-<%= link_to 'Back', magazine_volumes_path %>
+<%= link_to 'Back', admin_magazine_volumes_path %>

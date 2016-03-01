@@ -14,9 +14,9 @@
     <% @magazines.each do |magazine| %>
       <tr>
         <td><%= magazine.name %></td>
-        <td><%= link_to 'Show', magazine %></td>
-        <td><%= link_to 'Edit', edit_magazine_path(magazine) %></td>
-        <td><%= link_to 'Destroy', magazine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_magazine_path(magazine) %></td>
+        <td><%= link_to 'Edit', edit_admin_magazine_path(magazine) %></td>
+        <td><%= link_to 'Destroy', admin_magazine_path(magazine), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Magazine', new_magazine_path %>
+<%= link_to 'New Magazine', new_admin_magazine_path %>

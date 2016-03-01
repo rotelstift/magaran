@@ -18,9 +18,9 @@
         <td><%= Magazine.find(magazine_volume.magazine_id).name %></td>
         <td><%= magazine_volume.number %></td>
         <td><%= magazine_volume.published %></td>
-        <td><%= link_to 'Show', magazine_volume %></td>
-        <td><%= link_to 'Edit', edit_magazine_volume_path(magazine_volume) %></td>
-        <td><%= link_to 'Destroy', magazine_volume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_magazine_volume_path %></td>
+        <td><%= link_to 'Edit', edit_admin_magazine_volume_path(magazine_volume) %></td>
+        <td><%= link_to 'Destroy', admin_magazine_volume_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Magazine volume', new_magazine_volume_path %>
+<%= link_to 'New Magazine volume', new_admin_magazine_volume_path %>
