@@ -28,7 +28,7 @@
       </div>
       <div role="main" class="ui-content">
         <% if current_user %>
-          <%= current_user.name %> <%= link_to 'ログアウト', logout_path %>
+          <%= current_user.name %> <%= link_to 'ログアウト', logout_path, data: {ajax: "false"} %>
         <% else %>
           <p>書き込みをするにはTwitter認証が必要です。</p>
           <%= link_to "認証", "/auth/twitter", data: {ajax: "false"}, class: %w(ui-btn ui-btn-inline ui-corner-all ui-btn-b) %>
