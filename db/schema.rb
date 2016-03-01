@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223110618) do
+ActiveRecord::Schema.define(version: 20160301112115) do
 
   create_table "carriages", force: :cascade do |t|
     t.integer  "magazine_id"
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 20160223110618) do
     t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "user_id",                       null: false
+    t.integer  "comic_chapter_id",              null: false
+    t.boolean  "loved",                         null: false
+    t.text     "impression",       default: "", null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
 end

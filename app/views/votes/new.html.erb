@@ -1,13 +1,4 @@
 
 <h1>Votes#new</h1>
 <p>投票だー</p>
-<p>
-  <% if params[:magazine_id] %>
-    <%= params[:magazine_id] %>
-  <% end %>
-</p>
-
-<%= form_tag('/posts') do -%>
-  <%= collection_select(:vote, :magazine_id, Magazine.all, :id, :name, prompt: true) %>
-  <div><%= submit_tag 'Save' %></div>
-<% end -%>
+<%= render 'form' %>
