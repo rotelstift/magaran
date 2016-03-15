@@ -8,10 +8,11 @@ $(function(){
 		//alert($(this).val());
 		$(location).attr("href", "/magazine/" + $(this).val() + "/votes/new");
 	});
-
-	//$('#hoge').click(function() {
-		//$.ajax(url: "/").done(function(html) {
-		//	$("#results").append(html);
-	  //});
-	//});
+	$("#hoge").click(function() {
+		//alert($(this).val());
+		$.ajax({url: "/#test"}).done(function(html) {
+			debugger;
+			$("#results").append(html);
+		});
+	});
 });
