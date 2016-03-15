@@ -10,5 +10,26 @@ class VotesController < BaseController
   end
 
   def create
+    @vote = Vote.new(vote_params)
+    @vote.user_id = current_user.id
+
+    respond_to do |format|
+      if @vote.save
+        format.html { redirect_to @vote, notice: 'Vote was successfully created.' }
+        format.json { render :show, status: :created, location: @vote }
+      else
+        format.html { render :new }
+        format.json { render json: @vote.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def show
+
+  end
+
+  private
+  def vote_params
+    params.require(:vote).permit(:comic_chapter_id, :loved, :impression)
   end
 end

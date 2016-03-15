@@ -1,5 +1,5 @@
 module Admin
-  class MagazineVolumesController < ApplicationController
+  class MagazineVolumesController < BaseController
     before_action :set_magazine_volume, only: [:show, :edit, :update, :destroy]
 
     # GET /magazine_volumes

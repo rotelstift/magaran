@@ -7,5 +7,11 @@ $(function(){
 	$("select#vote_magazine_id").change(function(){
 		//alert($(this).val());
 		$(location).attr("href", "/magazine/" + $(this).val() + "/votes/new");
-	});	
+	});
+
+	//$('#hoge').click(function() {
+		//$.ajax(url: "/").done(function(html) {
+		//	$("#results").append(html);
+	  //});
+	//});
 });

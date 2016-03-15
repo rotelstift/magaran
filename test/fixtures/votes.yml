@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  comic_chapter_id: 1
+  love: false
+  impression: MyText
+
+two:
+  user_id: 1
+  comic_chapter_id: 1
+  love: false
+  impression: MyText
