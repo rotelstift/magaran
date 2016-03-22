@@ -7,6 +7,12 @@ class VotesController < BaseController
     else
       redirect_to root_path
     end
+
+    @magazines = Magazine.all
+    # => [週間少年ジャンプ最新号, 週間少年マガジン最新号, 週間少年サンデー最新号, 週間少年チャンピオン最新号]
+
+    #@comic_chapters = @magazines.first.magazine_volumes.last.comic_chapters
+
   end
 
   def create
