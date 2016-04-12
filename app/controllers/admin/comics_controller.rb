@@ -1,5 +1,5 @@
 module Admin
-  class ComicsController < ApplicationController
+  class ComicsController < BaseController
     before_action :set_comic, only: [:show, :edit, :update, :destroy]
 
     # GET /comics
@@ -32,7 +32,7 @@ module Admin
 
       respond_to do |format|
         if @comic.save
-          format.html { redirect_to @comic, notice: 'Comic was successfully created.' }
+          format.html { redirect_to admin_comics_path(@comic), notice: 'Comic was successfully created.' }
           format.json { render :show, status: :created, location: @comic }
         else
           format.html { render :new }

@@ -21,7 +21,7 @@
 
   <div class="field">
     <%= f.label :comic_chapter_id %><br>
-    <%= f.collection_select(:comic_chapter_id, ComicChapter.all, :id, :subtitle) %>
+    <%= f.collection_select(:comic_chapter_id, ComicChapter.all, :id, :comic_title) %>
   </div>
   <div class="field">
     <%= f.label :loved %><br>

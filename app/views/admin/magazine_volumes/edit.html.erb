@@ -1,6 +1,6 @@
 <h1>Editing Magazine Volume</h1>
 
-<%= form_for(@magazine_volume) do |f| %>
+<%= form_for [:admin, @magazine_volume] do |f| %>
   <% if @magazine_volume.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@magazine_volume.errors.count, "error") %> prohibited this magazine_volume from being saved:</h2>
@@ -54,5 +54,5 @@
 <% end %>
 </table>
 
-<%= link_to 'Show', @magazine_volume %> |
+<%= link_to 'Show', admin_magazine_volumes_path(@magazine_volume) %> |
 <%= link_to 'Back', admin_magazine_volumes_path %>

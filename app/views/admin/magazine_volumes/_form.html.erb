@@ -1,4 +1,4 @@
-<%= form_for(@magazine_volume) do |f| %>
+<%= form_for [:admin, @magazine_volume] do |f| %>
   <% if @magazine_volume.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@magazine_volume.errors.count, "error") %> prohibited this magazine_volume from being saved:</h2>
@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-    
+
     <div class="field">
       <%= f.label :magazine_id %><br>
       <%= f.collection_select(:magazine_id, Magazine.all, :id, :name, prompt: true) %>

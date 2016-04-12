@@ -37,7 +37,7 @@ module Admin
 
       respond_to do |format|
         if @magazine_volume.save
-          format.html { redirect_to @magazine_volume, notice: 'Magazine volume was successfully created.' }
+          format.html { redirect_to admin_magazine_volumes_path(@magazine_volume), notice: 'Magazine volume was successfully created.' }
           format.json { render :show, status: :created, location: @magazine_volume }
         else
           format.html { render :new }
@@ -51,7 +51,7 @@ module Admin
     def update
       respond_to do |format|
         if @magazine_volume.update(magazine_volume_params)
-          format.html { redirect_to @magazine_volume, notice: 'Magazine volume was successfully updated.' }
+          format.html { redirect_to admin_magazine_volumes_path(@magazine_volume), notice: 'Magazine volume was successfully updated.' }
           format.json { render :show, status: :ok, location: @magazine_volume }
         else
           format.html { render :edit }

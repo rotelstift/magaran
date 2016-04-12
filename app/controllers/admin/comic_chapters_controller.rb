@@ -1,5 +1,5 @@
 module Admin
-  class ComicChaptersController < ApplicationController
+  class ComicChaptersController < BaseController
     before_action :set_comic_chapter, only: [:show, :edit, :update, :destroy]
 
     # GET /comic_chapters
@@ -57,7 +57,7 @@ module Admin
     def destroy
       @comic_chapter.destroy
       respond_to do |format|
-        format.html { redirect_to comic_chapters_url, notice: 'Comic chapter was successfully destroyed.' }
+        format.html { redirect_to admin_comic_chapters_path, notice: 'Comic chapter was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
