@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301112115) do
+ActiveRecord::Schema.define(version: 20160510110135) do
 
   create_table "carriages", force: :cascade do |t|
     t.integer  "magazine_id"
@@ -71,6 +71,10 @@ ActiveRecord::Schema.define(version: 20160301112115) do
     t.text     "impression",       default: "", null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.boolean  "fan"
+    t.boolean  "tears"
+    t.boolean  "laugh"
+    t.boolean  "cool"
   end
 
 end

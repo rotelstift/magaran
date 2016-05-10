@@ -21,11 +21,27 @@
 
   <div class="field">
     <%= f.label :comic_chapter_id %><br>
-    <%= f.collection_select(:comic_chapter_id, ComicChapter.all, :id, :comic_title) %>
+    <%= f.collection_select(:comic_chapter_id, ComicChapter.all, :id, :title) %>
   </div>
   <div class="field">
-    <%= f.label :loved %><br>
+    <%= f.label :loved, "好き" %><br>
     <%= f.check_box :loved %>
+  </div>
+  <div class="field">
+    <%= f.label :cool, "カッコいい" %><br>
+    <%= f.check_box :cool %>
+  </div>
+  <div class="field">
+    <%= f.label :fan, "面白い" %><br>
+    <%= f.check_box :fan %>
+  </div>
+  <div class="field">
+    <%= f.label :tears, "泣ける" %><br>
+    <%= f.check_box :tears %>
+  </div>
+  <div class="field">
+    <%= f.label :laugh, "笑える" %><br>
+    <%= f.check_box :laugh %>
   </div>
   <div class="field">
     <%= f.label :impression %><br>
