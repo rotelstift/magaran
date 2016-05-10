@@ -31,11 +31,11 @@ class VotesController < BaseController
   end
 
   def show
-
+    @votes = Vote.all
   end
 
   private
   def vote_params
-    params.require(:vote).permit(:comic_chapter_id, :loved, :impression)
+    params.require(:vote).permit(:comic_chapter_id, :loved, :cool, :fan, :tears, :laugh, :impression)
   end
 end
