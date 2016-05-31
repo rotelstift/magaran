@@ -1,4 +1,4 @@
-<%= select_tag "magazines", options_from_collection_for_select(@magazines, "id", "name") %>
+<%= select_tag "magazines", options_from_collection_for_select(@magazines, "id", "name"), data: { remote: true, url: url_for(action: :result)} %>
 
 <%= form_for(@vote) do |f| %>
   <% if @vote.errors.any? %>
@@ -13,13 +13,15 @@
     </div>
   <% end %>
 
+  <%#= render 'result.js.erb', f: f %>
+
   <div class="field">
     <%= f.label :user_id %><br>
     <%= hidden_field_tag @current_user.uid %>
   </div>
 
 
-  <div class="field">
+  <div class="field" id="result">
     <%= f.label :comic_chapter_id %><br>
     <%= f.collection_select(:comic_chapter_id, ComicChapter.all, :id, :title) %>
   </div>

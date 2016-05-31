@@ -1,0 +1,6 @@
+<%- if @selected_comic_chapters -%>
+    <%#= f.label :comic_chapter_id %>
+    <%#= f.collection_select(:comic_chapter_id, @selected_comic_chapters, :id, :title) %>
+    <%= label :vote, :comic_chapter_id %>
+    <%= collection_select(:vote, :comic_chapter_id, @selected_comic_chapters, :id, :title) %>
+<%- end -%>

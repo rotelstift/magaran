@@ -34,6 +34,13 @@ class VotesController < BaseController
     @votes = Vote.all
   end
 
+  def result
+    # 選択ボックスで指定された雑誌でcomic_chaptersを検索
+    @selected_magazine = MagazineVolume.where(magazine_id: params[:magazines]).last
+    @selected_comic_chapters = ComicChapter.where(magazine_volume_id: @selected_magazine.id)
+
+  end
+
   private
   def vote_params
     params.require(:vote).permit(:comic_chapter_id, :loved, :cool, :fan, :tears, :laugh, :impression)

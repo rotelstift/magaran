@@ -1,8 +1,24 @@
+<script>
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
 //alert("やっほーうごいてるぅ？");
+
+
+$(function(){
+	$("select#magazines").change(function(){
+		alert($(this).val());
+
+		$("#result").html(
+			"<%= escape_javascript(render('result', f: f) ) %>"
+		);
+
+	});
+});
+
+
+/*
 $(function(){
 	$("select#vote_magazine_id").change(function(){
 		//alert($(this).val());
@@ -16,3 +32,5 @@ $(function(){
 		});
 	});
 });
+*/
+</script>
