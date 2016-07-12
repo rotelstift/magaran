@@ -3,7 +3,7 @@
 
 <div id="results">
   <% @votes.each do |vote| %>
-    <h3><%= vote.title %> : <%= vote.subtitle %></h3>
+    <h3><%= vote.title %> : <%= link_to vote.subtitle, comic_chapter_votes_path(vote.comic_chapter_id) %></h3>
       <ul>
       <% if vote.loved %>
         <li>好き</li>

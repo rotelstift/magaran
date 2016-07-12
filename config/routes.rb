@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'magazines#index'
+  controller :magazines do
+    root 'magazines#index'
+    get 'votes/comic_chapter/:comic_chapter_id', action: :index, as: :comic_chapter_votes
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -66,7 +69,9 @@ Rails.application.routes.draw do
     post '/auth/:provider/callback', :to => 'sessions#callback'
     get '/logout' => 'sessions#destroy', :as => :logout
     resources :votes do
-      get 'result', :on => :collection
+      collection do
+        get 'result'
+      end
     end
 
 end
