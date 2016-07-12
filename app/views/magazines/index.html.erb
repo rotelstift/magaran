@@ -1,3 +1,33 @@
+<%= select_tag "magazines", options_from_collection_for_select(@magazines, "id", "name") %>
+
+
+<div id="results">
+  <% @votes.each do |vote| %>
+    <h3><%= vote.title %> : <%= vote.subtitle %></h3>
+      <ul>
+      <% if vote.loved %>
+        <li>好き</li>
+      <% end %>
+      <% if vote.cool %>
+        <li>カッコいい</li>
+      <% end %>
+      <% if vote.fan %>
+        <li>楽しい</li>
+      <% end %>
+      <% if vote.tears %>
+        <li>泣ける</li>
+      <% end %>
+      <% if vote.laugh %>
+        <li>笑える</li>
+      <% end %>
+    </ul>
+
+    <p><%= vote.impression %></p>
+  <% end %>
+
+</div>
+
+
 <h2 id="test">週刊少年ジャンプ</h2>
 
 <h3>1位</h3>

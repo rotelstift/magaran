@@ -16,7 +16,13 @@
       <header>
         <h1><a href="/">マガラン</a></h1>
         <!--<a href="#popupDialog" data-rel="popup">Dialog</a>-->
+        <% if current_user %>
+          <%= current_user.name %> <%= link_to 'ログアウト', logout_path, data: {ajax: "false"} %><br>
+          <a href="/votes/new" class="ui-btn ui-icon-edit ui-btn-icon-left" data-overlay-theme="b">感想を書く</a></p>
+        <% else %>
         <p><a href="#popupDialog" data-rel="popup" class="ui-btn ui-icon-edit ui-btn-icon-left" data-overlay-theme="b">感想を書く</a></p>
+
+        <% end %>
       </header>
     </div>
     <div role="main" class="ui-content">
