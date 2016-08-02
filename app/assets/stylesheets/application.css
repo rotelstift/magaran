@@ -26,3 +26,7 @@ header p {
 	text-align: right;
 	margin: 5px;
 }
+
+/*textarea#vote_impression {
+	resize: none;
+}*/

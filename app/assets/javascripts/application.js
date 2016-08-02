@@ -13,3 +13,20 @@
 
 //= require jquery_ujs
 //= require_tree .
+
+$(function (){
+  var MAX_LENGTH = $("#vote_impression").attr("maxlength");
+
+  $("#count_text").text(MAX_LENGTH + "文字");
+
+  $("#vote_impression").on('keyup', function(){
+    var text = $(this).val();
+    renderCount(text.length);
+  });
+
+  renderCount(0);
+
+  function renderCount(currentLength){
+    $("#count_text").text(MAX_LENGTH - currentLength + "文字");
+  }
+});

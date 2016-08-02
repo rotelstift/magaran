@@ -47,7 +47,9 @@
   </div>
   <div class="field">
     <%= f.label :impression %><br>
-    <%= f.text_field :impression %>
+    <%= f.text_area :impression, data: {autogrow: 'false'}, maxlength: "150", size: "30x5" %>
+    <%#= f.text_area :impression, {maxlength: "150", size: "30x5",　data: {autogrow: 'false'}} %>
+    <span id="count_text"></span>
   </div>
   <div class="actions">
     <%= f.submit %>
